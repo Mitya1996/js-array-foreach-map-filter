@@ -70,24 +70,23 @@ Examples:
     vowelCount('hmmm') // {};
     vowelCount('I Am awesome and so are you') // {i: 1, a: 4, e: 3, o: 3, u: 1};
 */
-function vowelCount(str){
-   let obj = {}
-
-   let as = [...str.toLowerCase()].filter(e=>e==='a').length
-   let es = [...str.toLowerCase()].filter(e=>e==='e').length
-   let is = [...str.toLowerCase()].filter(e=>e==='i').length
-   let os = [...str.toLowerCase()].filter(e=>e==='o').length
-   let us = [...str.toLowerCase()].filter(e=>e==='u').length
-
-    if(as) obj['a'] = as
-    if(es) obj['e'] = es
-    if(is) obj['i'] = is
-    if(os) obj['o'] = os
-    if(us) obj['u'] = us
-
-    return obj
-
-}
+function vowelCount(str) {
+    let splitArr = str.split("");
+    let obj = {};
+    const vowels = "aeiou";
+  
+    splitArr.forEach(function(letter) {
+      let lowerCasedLetter = letter.toLowerCase()
+      if (vowels.indexOf(lowerCasedLetter) !== -1) {
+        if (obj[lowerCasedLetter]) {
+          obj[lowerCasedLetter]++;
+        } else {
+          obj[lowerCasedLetter] = 1;
+        }
+      }
+    });
+    return obj;
+  }
 
 /*
 Write a function called doubleValuesWithMap which accepts an array and returns a new array with all 
